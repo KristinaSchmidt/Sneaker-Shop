@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  background-color: #3B3C3D;
+  justify-content: space-between;
+  align-items: center;
+  padding: 42px 250px;
+  color: white;
+
+nav {
+    display: flex;
+    gap: 64px;
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+}
+}
