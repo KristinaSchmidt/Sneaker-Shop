@@ -5,16 +5,29 @@
   align-items: center;
   padding: 42px 250px;
   color: white;
-
-nav {
+  margin-bottom: 30px;
+  max-width: 1920px;
+  width: 100%;
+}
+.nav {
     display: flex;
     gap: 64px;
+}
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
 
-a {
+.link {
     color: white;
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
+    cursor:pointer;
 }
+
+.link:hover {
+  color: #ccc;
 }
-}
+

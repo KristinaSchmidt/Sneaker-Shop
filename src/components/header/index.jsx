@@ -1,29 +1,31 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
 
-
 const menuList = [
-  {
-    title: "Main",
-    path: "/",
-  },
-  {
-    title: "Cart",
-    path: "/cart",
-  },
-  {
-    title: "Contacts",
-    path: "/contacts",
-  },
+  { title: "Main", path: "/" },
+  { title: "Cart", path: "/cart" },
+  { title: "Contacts", path: "/contacts" },
 ];
 
-function Header () {
-    return <header className={styles.header}>
-        <h1>Sneaker Shop</h1>
-        {menuList.map((menuItem) => {
-            return <NavLink className={styles.nav}key={menuItem.title} to ={menuItem.path}>{menuItem.title}</NavLink>
-        })}
+function Header() {
+  return (
+    <header className={styles.header}>
+      <h1 className={styles.brand}>Sneaker Shop</h1>
+      <nav className={styles.nav}>
+        {menuList.map((item) => (
+          <NavLink
+            key={item.title}
+            to={item.path}
+            className={({ isActive }) =>
+              `${styles.link} ${isActive ? styles.active : ""}`
+            }
+          >
+            {item.title}
+          </NavLink>
+        ))}
+      </nav>
     </header>
+  );
 }
 
 export default Header;

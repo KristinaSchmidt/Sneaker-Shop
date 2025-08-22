@@ -1,27 +1,28 @@
 import "./App.css";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/header";
 import Main from "./pages/main";
 import Cart from "./pages/cart";
 import Contacts from "./pages/contacts";
 import CartProvider from "./context/cartContext";
+import News from "./components/news/index";
+import Footer from "./components/footer/index";
 
 
 function App() {
   return (
-    <CartProvider>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="*" element={<h1>404 Page Not Found</h1>} />
-        </Routes>
-        <Main></Main>
-        {/* Footer */}
-      </div>
-    </CartProvider>
+    <div className="app">
+      <Header />
+      <News />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="*" element={<h1 style={{padding:24}}>404 Page Not Found</h1>} />
+      </Routes>
+      <Footer />
+    </div>
+
   );
 }
 

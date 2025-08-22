@@ -1,0 +1,3 @@
+.container{ max-width:1200px; margin:0 auto; padding:24px 16px 48px; }
+.list{ display:grid; grid-template-columns:1fr; gap:16px; margin:16px 0 24px; }
+.total{ display:flex; justify-content:flex-end; gap:12px; font-size:18px; }

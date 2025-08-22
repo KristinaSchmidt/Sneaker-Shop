@@ -1,0 +1,8 @@
+.card{ display:grid; grid-template-columns:120px 1fr; gap:16px; border:1px solid #e9e9ee; border-radius:12px; padding:12px; background:#fff; }
+.img{ width:100%; border-radius:8px; }
+.info{ display:flex; flex-direction:column; gap:8px; }
+.title{ margin:0; font-size:16px; font-weight:600; }
+.row{ display:flex; justify-content:space-between; align-items:center; }
+.price{ font-size:15px; }
+.remove{ width:28px; height:28px; border-radius:999px; border:1px solid #e0e0e6; background:#fff; cursor:pointer; font-size:16px; }
+.remove:hover{ background:#f5f5f7; }

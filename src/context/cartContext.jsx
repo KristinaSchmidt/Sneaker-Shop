@@ -1,17 +1,26 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import axios from "axios";
 
 
 export const BASE_URL = "https://664623b951e227f23aadf146.mockapi.io";
 
 const CartContext = createContext();
+const RESOURCE = `${BASE_URL}/cartData`;
+
+
+export function useCart() {
+  return useContext(CartContext);
+}
+
 
 const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  
   async function fetchCartItems() {
     try {
-      const response = await axios.get(`${BASE_URL}/cartData`);
-      setCartItems(response.data);
+      const response = await axios.get("/api/cart");
+      const data = await response.json();
+      setCartItems(data.items);
     } catch (error) {
       console.error("Error occured when fetching cart items: ", error);
     }
