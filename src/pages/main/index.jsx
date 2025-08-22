@@ -32,8 +32,8 @@ function Main() {
              <button
               className="icon-btn"
               type="button"
-              aria-label="In den Warenkorb hinzufügen"
-              title="In den Warenkorb hinzufügen"
+              aria-label="Product add"
+              title="Product add"
             >
               <img
               src={Plus}
