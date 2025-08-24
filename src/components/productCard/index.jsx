@@ -1,5 +1,5 @@
 import { useCart } from "../../context/cartContext";
-import styles from "./ProductCard.module.css";
+import styles from "./styles.module.css";
 
 function ProductCard({ product }) {
   const { isInCart, addToCart, removeFromCart } = useCart();

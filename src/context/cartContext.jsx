@@ -2,10 +2,10 @@ import { createContext, useEffect, useState, useContext } from "react";
 import axios from "axios";
 
 
-export const BASE_URL = "https://664623b951e227f23aadf146.mockapi.io";
+export const BASE_URL = "https://68808f32f1dcae717b628047.mockapi.io";
 
 const CartContext = createContext();
-const RESOURCE = `${BASE_URL}/cartData`;
+const CART_RESOURCE = `${BASE_URL}/cartData`;
 
 
 export function useCart() {
@@ -18,11 +18,10 @@ const CartProvider = ({ children }) => {
   
   async function fetchCartItems() {
     try {
-      const response = await axios.get("/api/cart");
-      const data = await response.json();
-      setCartItems(data.items);
+       const { data } = await axios.get(CART_RESOURCE);
+      setCartItems(data || []);
     } catch (error) {
-      console.error("Error occured when fetching cart items: ", error);
+      console.error("Error occurred when fetching cart items:", error);
     }
   }
 
@@ -30,14 +29,18 @@ const CartProvider = ({ children }) => {
     fetchCartItems();
   }, []);
 
-  // add item to cart
-  // post -> BASE_URL/cartData
-  // remove item from cart
-  // delete -> BASE_URL/cartData/productId
   return (
     <CartContext.Provider value={{ cartItems }}>
       {children}
     </CartContext.Provider>
   );
 };
+
 export default CartProvider;
+
+
+
+// add item to cart
+  // post -> BASE_URL/cartData
+  // remove item from cart
+  // delete -> BASE_URL/cartData/productId

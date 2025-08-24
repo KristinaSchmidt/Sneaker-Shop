@@ -6,10 +6,11 @@ import Plus from "../../assets/Plus.svg";
 
 function Main() {
   const [products, setProducts] = useState([]);
+
   async function fetchProducts() {
     try {
-      const response = await axios.get(`${BASE_URL}/productData`);
-      setProducts(response.data);
+      const { data } = await axios.get(`${BASE_URL}/products`);
+      setProducts(data || []);
     } catch (error) {
       console.error("Error occured when fetching products: ", error);
     }
@@ -21,33 +22,35 @@ function Main() {
 
   return (
     <main className={styles.container}>
-      <h1 className={styles.title}>Products</h1>
+      <h1 className={styles.pageTitle}>Produkte</h1>
+
       <div className={styles.grid}>
-        {products.map(({ id, image, name, price }) => {
-          return (
-            <div className={styles.gridCart} key={id}>
-              <img src={products[0].image} alt={name} />
-              <h1>{name}</h1>
-              <h2>Price: {price}</h2>
-             <button
-              className="icon-btn"
-              type="button"
-              aria-label="Product add"
-              title="Product add"
-            >
-              <img
-              src={Plus}
-              width="22"
-              height="22"
-              alt="Plus"
-              aria-hidden="true"
-            />
-          </button>
-            </div>
-          );
-        })}
+        {products.map(({ id, image, name, price }) => (
+          <div className={styles.gridCart} key={id}>
+  <img src={image} alt={name} className={styles.productImage} />
+
+  <h4 className={styles.cardTitle}>{name}</h4>
+
+  <div className={styles.row}>
+    <div className={styles.priceBox}>
+      <span className={styles.priceLabel}>PREIS:</span>
+      <span className={styles.price}><b>{price} €</b></span>
+    </div>
+
+    <button
+      className={styles.iconBtn}
+      type="button"
+      aria-label="Zum Warenkorb hinzufügen"
+      title="Zum Warenkorb hinzufügen"
+    >
+      <img src={Plus} width="14" height="14" alt="" aria-hidden="true" />
+    </button>
+  </div>
+</div>
+        ))}
       </div>
     </main>
   );
 }
+
 export default Main;

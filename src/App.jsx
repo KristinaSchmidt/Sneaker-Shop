@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/header";
 import Main from "./pages/main";
 import Cart from "./pages/cart";
@@ -10,10 +10,12 @@ import Footer from "./components/footer/index";
 
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="app">
       <Header />
-      <News />
+      {location.pathname === "/" && <News />}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/cart" element={<Cart />} />
