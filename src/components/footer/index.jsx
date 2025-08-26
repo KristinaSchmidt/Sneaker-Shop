@@ -1,50 +1,46 @@
 import styles from "./styles.module.css";
-
-
-import fbIcon from "../../assets/facebook.svg";
+import facebook from "../../assets/facebook.svg";
 import twIcon from "../../assets/twitter.svg";
 import igIcon from "../../assets/instagram.svg";
 
 function Footer() {
   return (
     <footer className={styles.footer} role="contentinfo">
-      <div className={styles.inner}>
-
-        <div className={styles.colLeft}>
-          <h3 className={styles.head}>Контакты</h3>
+      <div className={styles.top}>
+        <div className={styles.left}>
+          <h3 className={styles.head}>Kontakte</h3>
           <p className={styles.line}>8 800 000 00 00</p>
           <p className={styles.line}>emailexample@gmail.com</p>
         </div>
 
-
-        <div className={styles.colCenter}>
-          <a className={styles.social} href="#" aria-label="Facebook">
-            <img src={fbIcon} alt="Facebook" className={styles.icon} />
+        <div className={styles.center}>
+          <a className={styles.social} href="!#" aria-label="Facebook">
+            <img src={facebook} alt="Facebook" className={styles.icon} />
           </a>
-          <a className={styles.social} href="#" aria-label="Twitter">
+          <a className={styles.social} href="!#" aria-label="Twitter">
             <img src={twIcon} alt="Twitter" className={styles.icon} />
           </a>
-          <a className={styles.social} href="#" aria-label="Instagram">
+          <a className={styles.social} href="!#" aria-label="Instagram">
             <img src={igIcon} alt="Instagram" className={styles.icon} />
           </a>
         </div>
+      </div>
 
+      <div className={styles.bottom}>
+        <div className={styles.copy}>
+          2026 Sneaker-Shop. Alle Rechte vorbehalten.
+        </div>
 
-        <div className={styles.colRight}>
+        <form className={styles.subscribe} onSubmit={(e) => e.preventDefault()}>
           <label className={styles.label} htmlFor="footerEmail">
-            Введите свой email:
           </label>
           <input
             id="footerEmail"
             type="email"
             className={styles.input}
-            placeholder="example@mail.com"
+            placeholder="Ihre E-mail Adresse:"
           />
-        </div>
-      </div>
-
-      <div className={styles.bottom}>
-        2024 Сникер-магазин, Все права защищены
+        </form>
       </div>
     </footer>
   );

@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div className="app">
+      <div className="page">
       <Header />
       {location.pathname === "/" && <News />}
       <Routes>
@@ -22,7 +23,8 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="*" element={<h1 style={{padding:24}}>404 Page Not Found</h1>} />
       </Routes>
-      <Footer />
+      <Footer className="footer" />
+      </div>
     </div>
 
   );

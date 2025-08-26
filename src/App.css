@@ -1,10 +1,11 @@
-* {
+.app {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  max-width: 1920px;
 }
 
+.page {
+  min-height: 100vh;             /* oder 100dvh */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header | Content | Footer */
+}
 
 

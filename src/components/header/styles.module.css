@@ -3,7 +3,7 @@
   background-color: #3B3C3D;
   justify-content: space-between;
   align-items: center;
-  padding: 42px 250px;
+  padding: 42px 13%;
   color: white;
   margin-bottom: 30px;
   max-width: 1920px;
@@ -49,27 +49,21 @@
   display: none;
 }
 
-/* ==== MOBILE ==== */
-@media (max-width: 980px) {
-  .header {
-    position: relative;
-    padding: 16px;
-  }
+/* Mobile*/
+@media (max-width: 1024px) and (min-width: 641px) {
+  .header { padding: 24px 10px; }
+  .nav { gap: 32px; }
+}
 
-  .nav {
-    display: none;
-  }
 
+@media (max-width: 640px) {
+  .header { padding: 12px 6%; }
+  .nav { display: none; }
   .mobileOnly {
     display: inline-flex;
     margin-left: auto;
     align-items: center;
   }
-
-  .link {
-    font-size: 16px;
-  }
-
   .backdrop {
     position: fixed;
     inset: 0;
