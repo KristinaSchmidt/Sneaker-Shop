@@ -20,14 +20,7 @@ function ProductCard({ product }) {
       <div className={styles.row}>
         <span className={styles.price}><b>{price} €</b></span>
 
-        <button
-  type="button"
-  onClick={() => {
-    alert("Button wurde geklickt!");  // << Test
-  }}
->
-  Test
-</button>
+      
       </div>
     </div>
   );

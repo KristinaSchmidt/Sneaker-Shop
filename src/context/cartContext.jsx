@@ -101,7 +101,7 @@ const CartProvider = ({ children }) => {
   const clearCart = async () => {
     try {
       const toDelete = [...cartItems];
-      setCartItems([]); // optimistic
+      setCartItems([]);
       await Promise.all(toDelete.map((i) => axios.delete(`${CART_RESOURCE}/${i.id}`)));
     } catch (e) {
       console.error("clearCart failed:", e);

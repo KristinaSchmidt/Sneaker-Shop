@@ -1,65 +1,119 @@
-.container { max-width:1920px; margin:0 auto; padding: 42px 13%; }
-
+.container { 
+  max-width: 1920px; 
+  padding: 42px 13%; 
+}
 
 .grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 120px;
+  box-sizing: border-box;
 }
-@media (max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:560px){ .grid{ grid-template-columns:1fr; } }
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 .gridCart {
-  border:1px solid #ececf1;
-  border-radius:20px;
-  background:#fff;
-  padding:16px;
-}
-
-.pageTitle {
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ececf1;
+  border-radius: 20px;
+  background: #fff;
+  padding: 20px;
+  height: 100%;
 }
 
 
 .productImage {
-  width:100%;
-  height:150px;
-  object-fit:contain;
-  object-position:center;
-  display:block;
-  margin-bottom:12px;
-  
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin-bottom: 12px;
 }
 
-/* Titel kleiner & dichter */
 .cardTitle {
-  font-size:15px;
-  line-height:1.35;
-  font-weight:600;
-  color:#222;
-  margin:0 0 12px 0;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 12px 0;
+  flex-grow: 1;
 }
 
-/* Preis-Zeile */
-.row { display:flex; align-items:center; justify-content:space-between; }
-.priceBox { display:flex; flex-direction:column; gap:4px; }
+
+.row {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.priceBox { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+}
+
 .priceLabel {
-  font-size:11px; color:#8f9099; letter-spacing:.06em; text-transform:uppercase;
+  font-size: 11px; 
+  color: #8f9099; 
+  letter-spacing: .06em; 
+  text-transform: uppercase;
 }
-.price { font-size:16px; }
+.price { font-size: 16px; }
 
-
+/* Button */
 .iconBtn{
-  width:38px; height:38px;
-  border-radius:999px;
-  border:1px solid #e0e0e6;
+  position: relative;
+  width:37px; height:37px;
+  border-radius:50%;
+  border:1px solid #d9d9de;
   background:#fff;
-  display:inline-flex; align-items:center; justify-content:center;
-  cursor:pointer; padding:0; line-height:0;
+  cursor:pointer;
+  transition: background .15s, border-color .15s, box-shadow .15s;
+  -webkit-tap-highlight-color: transparent;
+  color:#0e0e0f;
 }
-.iconBtn:hover{ background:#0e0e0f; }
-.iconBtn img{ width:38px; height:38px; display:block; }
+
+/* Plus-Zeichen */
+.iconBtn::before,
+.iconBtn::after{
+  content:"";
+  position:absolute;
+  left:50%; top:50%;
+  width:14px; height:2px;      /* Größe des Pluszeichens */
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  border-radius:1px;
+}
+.iconBtn::after{ transform: translate(-50%, -50%) rotate(90deg); }
+
+.iconBtn:hover{ background:#f7f7f9; }
+
+.iconBtn:active{
+  background:#0e0e0f;
+  border-color:#0e0e0f;
+  color:#fff;                  /* Plus wird weiß */
+  box-shadow:0 0 0 4px #d9d9de;
+}
 
 
-
+.inCart{
+  background:#0e0e0f;
+  border-color:#0e0e0f;
+  color:#fff;
+  box-shadow:0 0 0 4px #d9d9de;
+}

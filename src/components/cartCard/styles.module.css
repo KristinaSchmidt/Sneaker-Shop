@@ -1,29 +1,66 @@
-.card{
-  display:grid;
-  grid-template-columns:120px 1fr;
-  gap:16px;
-  border:1px solid #e9e9ee;
-  border-radius:12px;
-  padding:12px;
-  background:#fff;
-  /* max-width: 400px;  <-- ENTFERNEN, damit die Karte die ganze Spaltenbreite nutzt */
+.card {
+  display: grid;
+  grid-template-columns: 100px 1fr auto; /* Bild | Info | Button */
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #e9e9ee;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: #f9f9fb; /* statt #fff */
 }
 
-.img{ width:100%; border-radius:8px; }
-
-.info{ display:flex; flex-direction:column; gap:8px; }
-
-.title{ margin:0; font-size:16px; font-weight:600; }
-
-.row{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
-
-.price{ font-size:15px; white-space:nowrap; }
-
-
-.remove{
-  width:28px; height:28px;
-  border-radius:999px;
-  border:1px solid #e0e0e6;
-  background:#fff; cursor:pointer; font-size:16px;
+.img {
+  width: 100%;
+  max-width: 100px;
+  border-radius: 8px;
+  object-fit: cover; /* gleichmäßige Bilder */
 }
-.remove:hover{ background:#f5f5f7; }
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.price {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.price::before {
+  content: "ЦЕНА:"; /* wie im Screenshot */
+  margin-right: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+.remove {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e6;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove:hover {
+  background: #f5f5f7;
+}

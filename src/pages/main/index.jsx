@@ -3,7 +3,7 @@ import { BASE_URL } from "../../context/cartContext";
 import { useCart } from "../../context/cartContext";
 import axios from "axios";
 import styles from "./styles.module.css";
-import Plus from "../../assets/Plus.svg";
+
 
 function Main() {
   const [products, setProducts] = useState([]);
@@ -39,7 +39,7 @@ function Main() {
                     : addToCart({ id, name, price, image })
                 }
               >
-                <img src={Plus} width="14" height="14" alt="" aria-hidden="true" />
+                
               </button>
             </div>
           </div>
